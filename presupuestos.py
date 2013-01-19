@@ -6,15 +6,12 @@ Created on 06/07/2012
 @author: fran
 '''
 import re
-import nltk
-from collections import defaultdict
-from nltk.tokenize import PunktWordTokenizer as Tokenizador
-from nltk.probability import FreqDist 
+
 
 def tree(): return defaultdict(tree)
 
 
-class presupuesto:
+class manipulador_BC3():
     """
     Es un objeto que representa el presupuesto entero.
     TODO
@@ -100,8 +97,8 @@ Esto no funciona especialmente bien puesto que pueden tener la misma informació
 Habría que implementar un análisis de los textos para así sacar las palabras clave.
 '''
 
-presBAS = presupuesto('179-11.bc3')
-pres1 = presupuesto('018-12.bc3')
+presBAS = manipulador_BC3('179-11.bc3')
+pres1 = manipulador_BC3('018-12.bc3')
 '''
 
 verbose = False
@@ -123,6 +120,11 @@ pres1.grabarBC3('018-12_con_resumen.bc3')
 presBAS.grabarBC3('179-11_prueba_exportar.bc03')
 '''
 
+
+import nltk
+from collections import defaultdict
+from nltk.tokenize import PunktWordTokenizer as Tokenizador
+from nltk.probability import FreqDist 
 
 todos_textos = ' '.join([pres1.textos[codigo].decode('latin2') for codigo in pres1.textos])
 print todos_textos
